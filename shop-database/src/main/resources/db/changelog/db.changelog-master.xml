@@ -25,4 +25,28 @@
         <tagDatabase tag="v-1.1"/>
     </changeSet>
 
+    <include file="v-2.0/root.changelog.xml" relativeToChangelogFile="true"/>
+
+    <changeSet id="300" author="vera_m">
+        <tagDatabase tag="v-2.0"/>
+    </changeSet>
+
+    <include file="v-2.1/root.changelog.xml" relativeToChangelogFile="true"/>
+
+    <changeSet id="400" author="vera_m">
+        <tagDatabase tag="v-2.1"/>
+    </changeSet>
+
+    <include file="v-2.2/root.changelog.xml" relativeToChangelogFile="true"/>
+
+    <changeSet id="500" author="vera_m">
+        <tagDatabase tag="v-2.2"/>
+    </changeSet>
+
+    <include file="v-2.2.1/root.changelog.xml" relativeToChangelogFile="true"/>
+
+    <changeSet id="501" author="vera_m">
+        <tagDatabase tag="v-2.2.1"/>
+    </changeSet>
+
 </databaseChangeLog>

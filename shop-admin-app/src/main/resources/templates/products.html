@@ -20,7 +20,9 @@
                 <div class="form-group mb-2 mr-2">
                     <label for="categoryId" class="sr-only">Categories</label>
                     <select class="form-control" id="categoryId" name="categoryId">
-                        <option th:selected="${param.categoryId == null || param.categoryId[0].isBlank()}" value="-1">All</option>
+                        <option th:selected="${param.categoryId == null || param.categoryId[0].isBlank()}" value="-1">
+                            All
+                        </option>
                         <option th:each="cat : ${categories}"
                                 th:text="${cat.name}"
                                 th:value="${cat.id}"
@@ -45,9 +47,13 @@
                 <tr>
                     <th scope="col" th:replace="fragments/sort_header :: sort_header_product ('Id', 'id')"></th>
                     <th scope="col" th:replace="fragments/sort_header :: sort_header_product ('Name', 'name')"></th>
-                    <th scope="col" th:replace="fragments/sort_header :: sort_header_product ('Brand', 'brand.name')"></th>
-                    <th scope="col" th:replace="fragments/sort_header :: sort_header_product ('Category', 'category.name')"></th>
+                    <th scope="col"
+                        th:replace="fragments/sort_header :: sort_header_product ('Brand', 'brand.name')"></th>
+                    <th scope="col"
+                        th:replace="fragments/sort_header :: sort_header_product ('Category', 'category.name')"></th>
+                    <th scope="col">Description</th>
                     <th scope="col" th:replace="fragments/sort_header :: sort_header_product ('Price', 'price')"></th>
+                    <th scope="col">Image</th>
                     <th scope="col">Actions</th>
                 </tr>
                 </thead>
@@ -57,7 +63,14 @@
                     <td th:text="${product.name}">Product</td>
                     <td th:text="${product.brand.name}">Brand</td>
                     <td th:text="${product.category.name}">Category</td>
+                    <td th:text="${product.description}">Description</td>
                     <td th:text="${product.price}">$100</td>
+                    <td width="15%">
+                        <div class="card" th:each="picId : ${product.pictures}">
+                            <img class="card-img-bottom" th:src="@{/picture/{pictureId}(pictureId=${picId})}"
+                                 width="90%"/>
+                        </div>
+                    </td>
                     <td>
                         <a class="btn btn-success" th:href="@{/product/{id}(id = ${product.id})}"><i
                                 class="fas fa-edit"></i></a>

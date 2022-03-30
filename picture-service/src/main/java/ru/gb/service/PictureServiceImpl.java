@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import ru.gb.controller.PictureDto;
 import ru.gb.persist.PictureRepository;
 import ru.gb.persist.model.Picture;
 
@@ -36,13 +37,14 @@ public class PictureServiceImpl implements PictureService {
     }
 
     @Override
-    public Optional<byte[]> getPictureDataById(long id) {
+    public Optional<PictureDto> getPictureDataById(long id) {
         return pictureRepository.findById(id)
-                .map(pic -> Paths.get(storagePath, pic.getStorageFileName()))
-                .filter(Files::exists)
-                .map(path -> {
+                .map(pic -> new PictureDto(pic.getContentType(),Paths.get(storagePath, pic.getStorageFileName())))
+                .filter(pic->Files.exists(pic.getPath()))
+                .map(pic -> {
                     try {
-                        return Files.readAllBytes(path);
+                        pic.setData(Files.readAllBytes(pic.getPath()));
+                        return pic;
                     } catch (IOException ex) {
                         logger.error("Can't read file", ex);
                         throw new RuntimeException(ex);
@@ -60,5 +62,10 @@ public class PictureServiceImpl implements PictureService {
             throw new RuntimeException(ex);
         }
         return filename;
+    }
+
+    @Override
+    public boolean isPictureExists(long id) {
+        return pictureRepository.existsById(id);
     }
 }

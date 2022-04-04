@@ -20,10 +20,10 @@ export class PaginationComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.page != null) {
-      this.numbers = Array.from(Array(this.page.totalPages).keys());
-      this.pageNumber = this.page.number + 1;
-    }
+      if (this.page != null) {
+        this.numbers = Array.from(Array(this.page.totalPages).keys());
+        this.pageNumber = this.page.number + 1;
+      }
   }
 
   ngOnInit(): void {

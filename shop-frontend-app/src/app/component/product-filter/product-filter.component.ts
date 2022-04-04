@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductFilterComponent implements OnInit {
 
+  nameFilter: string = '';
+
   constructor() { }
 
   ngOnInit(): void {

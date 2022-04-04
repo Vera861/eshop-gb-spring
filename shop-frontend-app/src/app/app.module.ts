@@ -8,6 +8,8 @@ import { ProductInfoPageComponent } from './page/product-info-page/product-info-
 import { NavBarComponent } from './component/nav-bar/nav-bar.component';
 import { ProductFilterComponent } from './component/product-filter/product-filter.component';
 import { FooterComponent } from './component/footer/footer.component';
+import { ProductGalleryComponent } from './component/product-gallery/product-gallery.component';
+import { PaginationComponent } from './component/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { FooterComponent } from './component/footer/footer.component';
     ProductInfoPageComponent,
     NavBarComponent,
     ProductFilterComponent,
-    FooterComponent
+    FooterComponent,
+    ProductGalleryComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,

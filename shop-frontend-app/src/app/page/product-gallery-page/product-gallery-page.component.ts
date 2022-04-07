@@ -14,6 +14,8 @@ export class ProductGalleryPageComponent implements OnInit {
 
   page?: Page;
 
+  nameFilter?: string;
+
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
@@ -27,8 +29,18 @@ export class ProductGalleryPageComponent implements OnInit {
   }
 
   goToPage(page: number) {
-    this.productService.findAll(page).subscribe( res => {
+    this.productService.findAll(this.nameFilter, page).subscribe( res => {
       console.log("Loading products");
+      this.page = res;
+      this.products = res.content;
+    }, err => {
+      console.log(`Error loading products ${err}`);
+    });
+  }
+
+  filterApplied($event: string) {
+    this.productService.findAll($event, 1).subscribe(res => {
+      this.nameFilter = $event;
       this.page = res;
       this.products = res.content;
     }, err => {

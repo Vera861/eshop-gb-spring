@@ -1,8 +1,10 @@
 package ru.gb.controller.dto;
 
 import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 
-public class CategoryDto {
+@JsonTypeInfo(use = JsonTypeInfo.Id.CLASS)
+public class CategoryDto implements Serializable {
 
     private Long id;
 

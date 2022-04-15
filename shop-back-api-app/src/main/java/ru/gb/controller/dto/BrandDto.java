@@ -1,8 +1,9 @@
 package ru.gb.controller.dto;
 
 import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 
-public class BrandDto {
+public class BrandDto implements Serializable {
 
     private Long id;
 

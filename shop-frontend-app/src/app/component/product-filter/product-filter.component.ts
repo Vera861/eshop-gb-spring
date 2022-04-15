@@ -11,7 +11,6 @@ export class ProductFilterComponent implements OnInit {
 
   @Output() filterApplied = new EventEmitter<string>();
 
-  @Output() categoryApplied = new EventEmitter<string>();
   constructor() { }
 
   ngOnInit(): void {

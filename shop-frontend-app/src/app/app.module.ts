@@ -12,8 +12,10 @@ import { ProductGalleryComponent } from './component/product-gallery/product-gal
 import { PaginationComponent } from './component/pagination/pagination.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
-import { CartPageComponent } from './page/cart-page/cart-page.component';
-import { CartItemComponent } from './component/cart-item/cart-item.component';
+import {CartPageComponent} from "./page/cart-page/cart-page.component";
+import {CartItemComponent} from "./component/cart-item/cart-item.component";
+import { LoginPageComponent } from './page/login-page/login-page.component';
+import { OrderPageComponent } from './page/order-page/order-page.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { CartItemComponent } from './component/cart-item/cart-item.component';
     ProductGalleryComponent,
     PaginationComponent,
     CartPageComponent,
-    CartItemComponent
+    CartItemComponent,
+    LoginPageComponent,
+    OrderPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,9 @@ import { CartItemComponent } from './component/cart-item/cart-item.component';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: UnauthorizedInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

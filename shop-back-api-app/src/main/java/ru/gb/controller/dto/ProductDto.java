@@ -1,5 +1,8 @@
 package ru.gb.controller.dto;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;

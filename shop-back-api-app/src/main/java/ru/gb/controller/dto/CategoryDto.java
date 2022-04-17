@@ -1,5 +1,7 @@
 package ru.gb.controller.dto;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 

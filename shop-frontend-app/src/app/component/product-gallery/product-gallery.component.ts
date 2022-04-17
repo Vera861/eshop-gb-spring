@@ -18,7 +18,7 @@ export class ProductGalleryComponent implements OnInit {
   }
 
   addToCart(id: number) {
-
-    this.cartService.addToCart(new AddLineItemDto(id, 1, "","")).subscribe();
+    this.cartService.addToCart(new AddLineItemDto(id, 1, "", ""))
+      .subscribe();
   }
 }

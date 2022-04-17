@@ -1,8 +1,12 @@
 package ru.gb.service;
 
+import ru.gb.controller.dto.OrderDto;
+
+import java.util.List;
+
 public interface OrderService {
 
-    void create();
+    List<OrderDto> findOrdersByUsername(String username);
 
-    void findAll();
+    void createOrder(String username);
 }

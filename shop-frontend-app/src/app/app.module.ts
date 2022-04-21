@@ -10,12 +10,13 @@ import { FooterComponent } from './component/footer/footer.component';
 import { ProductFilterComponent } from './component/product-filter/product-filter.component';
 import { ProductGalleryComponent } from './component/product-gallery/product-gallery.component';
 import { PaginationComponent } from './component/pagination/pagination.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import {CartPageComponent} from "./page/cart-page/cart-page.component";
 import {CartItemComponent} from "./component/cart-item/cart-item.component";
 import { LoginPageComponent } from './page/login-page/login-page.component';
 import { OrderPageComponent } from './page/order-page/order-page.component';
+import {UnauthorizedInterceptor} from "./helper/unauthorized-interceptor";
 
 @NgModule({
   declarations: [

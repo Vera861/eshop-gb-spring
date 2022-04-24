@@ -8,34 +8,26 @@
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 	<groupId>ru.gb</groupId>
-	<artifactId>shop-picture-service-api</artifactId>
+	<artifactId>spring-cloud-getway</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>shop-picture-service-api</name>
-	<description>shop-picture-service-api</description>
+	<name>spring-cloud-getway</name>
+	<description>spring-cloud-getway</description>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-config-client</artifactId>
+			<artifactId>spring-cloud-starter-gateway</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-bootstrap</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>ru.gb</groupId>
-			<artifactId>picture-service</artifactId>
-			<version>1.0-SNAPSHOT</version>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
 	</dependencies>
 
